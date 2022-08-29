@@ -50,30 +50,20 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 <form id="搜索" name="搜索" method="get" action="">
   <table width="100%" border="1">
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>症状id</td>
+      <td><input type="text" name="textfield" /></td>
+      <td>症状名</td>
+      <td><input type="text" name="textfield2" /></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td><label>
-        <input name="搜索" type="submit" id="搜索" value="搜索" />
-        <input name="重置" type="reset" id="重置" value="重置" />
+        <div align="right">
+          <input name="搜索" type="submit" id="搜索" value="搜索" />
+          <input name="重置" type="reset" id="重置" value="重置" />
+          </div>
       </label></td>
     </tr>
   </table>

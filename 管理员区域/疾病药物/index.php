@@ -50,15 +50,15 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 <form id="搜索" name="搜索" method="get" action="">
   <table width="100%" border="1">
     <tr>
+      <td>疾病id</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>疾病名称</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
+      <td>药物id</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>药物名称</td>
       <td>&nbsp;</td>
     </tr>
     <tr>

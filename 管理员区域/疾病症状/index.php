@@ -42,7 +42,7 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>疾病症状管理</title>
 </head>
 
 <body>
@@ -50,9 +50,9 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 <form id="搜索" name="搜索" method="get" action="">
   <table width="100%" border="1">
     <tr>
+      <td>疾病id</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>疾病名</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
