@@ -19,7 +19,7 @@ if (isset($_POST['用户名'])) {
   $MM_redirecttoReferrer = true;
   mysql_select_db($database_localhost, $localhost);
   
-  $LoginRS__query=sprintf("SELECT 用户名, 密码 FROM `用户` WHERE 用户名='%s' AND 密码='%s'",
+  $LoginRS__query=sprintf("SELECT 用户名, 密码 FROM `管理员` WHERE 用户名='%s' AND 密码='%s'",
     get_magic_quotes_gpc() ? $loginUsername : addslashes($loginUsername), get_magic_quotes_gpc() ? $password : addslashes($password)); 
    
   $LoginRS = mysql_query($LoginRS__query, $localhost) or die(mysql_error());

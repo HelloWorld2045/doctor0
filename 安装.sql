@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost
--- 生成日期： 2022-08-29 22:35:38
+-- 生成日期： 2022-08-29 22:54:41
 -- 服务器版本： 10.3.34-MariaDB-0+dde
 -- PHP 版本： 8.1.9
 
@@ -113,13 +113,6 @@ CREATE TABLE `用户` (
   `修改时间` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   `已经删除` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 转存表中的数据 `用户`
---
-
-INSERT INTO `用户` (`id`, `用户名`, `密码`, `email`, `创建时间`, `修改时间`, `已经删除`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '2022-08-29 13:33:19', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -342,7 +335,7 @@ INSERT INTO `科室` (`id`, `科室名称`, `上级科室id`, `医院id`, `简�
 
 CREATE TABLE `管理员` (
   `id` int(11) UNSIGNED NOT NULL,
-  `用户名` int(11) NOT NULL,
+  `用户名` varchar(36) NOT NULL,
   `密码` varchar(36) NOT NULL,
   `角色id` int(10) UNSIGNED NOT NULL,
   `备注` text NOT NULL,
@@ -350,6 +343,13 @@ CREATE TABLE `管理员` (
   `更新时间` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   `是否删除` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `管理员`
+--
+
+INSERT INTO `管理员` (`id`, `用户名`, `密码`, `角色id`, `备注`, `创建时间`, `更新时间`, `是否删除`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '', '2022-08-29 13:53:15', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -596,7 +596,7 @@ ALTER TABLE `权限`
 -- 使用表AUTO_INCREMENT `用户`
 --
 ALTER TABLE `用户`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用表AUTO_INCREMENT `用户信息`
@@ -668,7 +668,7 @@ ALTER TABLE `科室`
 -- 使用表AUTO_INCREMENT `管理员`
 --
 ALTER TABLE `管理员`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用表AUTO_INCREMENT `药物`
