@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:3,name:用户名;datatype:253,name:密码;datatype:254,name:email;datatype:253,name:创建时间;datatype:7,name:修改时间;datatype:7" />
+	<infoitem key="UD_Recordset2" value="name:id;datatype:3,name:用户名;datatype:253,name:密码;datatype:254,name:email;datatype:253,name:创建时间;datatype:7,name:修改时间;datatype:7" />
+</info>

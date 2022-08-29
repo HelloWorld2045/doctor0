@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:3,name:用户id;datatype:3,name:医院id;datatype:3,name:科室id;datatype:3,name:医生id;datatype:3,name:操作员id;datatype:1,name:预约时间;datatype:7,name:备注;datatype:252,name:创建时间;datatype:7,name:更新时间;datatype:7,name:已经删除;datatype:1" />
+</info>

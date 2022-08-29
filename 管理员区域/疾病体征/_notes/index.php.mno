@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:3,name:疾病id;datatype:3,name:体征id;datatype:3,name:创建时间;datatype:7,name:更新时间;datatype:7,name:是否删除;datatype:1" />
+</info>

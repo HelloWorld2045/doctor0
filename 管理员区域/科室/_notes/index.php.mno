@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:3,name:科室名称;datatype:253,name:医院id;datatype:3,name:简介;datatype:252" />
+</info>
