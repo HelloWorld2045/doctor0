@@ -46,11 +46,43 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 </head>
 
 <body>
-<h1>搜索</h1>
+<h1>用户血糖管理</h1>
+<form id="搜索" name="搜索" method="get" action="">
+  <table width="100%" border="1">
+    <tr>
+      <td>用户id</td>
+      <td>&nbsp;</td>
+      <td>用户名</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>血糖最低值</td>
+      <td>&nbsp;</td>
+      <td>血糖最高值</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>血糖测量方法</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><label>
+        <input name="搜索" type="submit" id="搜索" value="搜索" />
+        <input name="重置" type="reset" id="重置" value="重置" />
+      </label></td>
+    </tr>
+  </table>
+</form>
 <h1>列表</h1>
 <p>&nbsp;</p>
-<p>没有记录，欢迎添加！</p>
-<p>
+<?php if ($totalRows_Recordset1 == 0) { // Show if recordset empty ?>
+  <p>没有记录，欢迎添加！</p>
+  <?php } // Show if recordset empty ?><p>
 <table border="1" align="center">
   <tr>
     <td>id</td>
@@ -60,6 +92,7 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
     <td>创建时间</td>
     <td>最后更新时间</td>
     <td>已经删除</td>
+    <td>操作</td>
   </tr>
   <?php do { ?>
     <tr>
@@ -70,6 +103,7 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
       <td><?php echo $row_Recordset1['创建时间']; ?>&nbsp; </td>
       <td><?php echo $row_Recordset1['最后更新时间']; ?>&nbsp; </td>
       <td><?php echo $row_Recordset1['已经删除']; ?>&nbsp; </td>
+      <td><a href="删除.php?id=<?php echo $row_Recordset1['id']; ?>">删除</a> <a href="更新.php?id=<?php echo $row_Recordset1['id']; ?>">更新</a></td>
     </tr>
     <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
 </table>

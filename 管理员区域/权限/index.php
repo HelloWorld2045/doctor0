@@ -47,51 +47,66 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 </head>
 
 <body>
-<h1>搜索</h1>
-<h1>列表</h1>
-
-<table border="1" align="center">
-  <tr>
-    <td>id</td>
-    <td>权限名称</td>
-    <td>上级权限id</td>
-    <td>创建时间</td>
-    <td>更新时间</td>
-    <td>是否删除</td>
-  </tr>
-  <?php do { ?>
+<h1>权限管理</h1>
+<form id="搜索" name="搜索" method="get" action="">
+  <table width="100%" border="1">
     <tr>
-      <td><a href="更新.php?recordID=<?php echo $row_Recordset1['id']; ?>"> <?php echo $row_Recordset1['id']; ?>&nbsp; </a> </td>
-      <td><?php echo $row_Recordset1['权限名称']; ?>&nbsp; </td>
-      <td><?php echo $row_Recordset1['上级权限id']; ?>&nbsp; </td>
-      <td><?php echo $row_Recordset1['创建时间']; ?>&nbsp; </td>
-      <td><?php echo $row_Recordset1['更新时间']; ?>&nbsp; </td>
-      <td><?php echo $row_Recordset1['是否删除']; ?>&nbsp; </td>
+      <td>权限名称</td>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+      <td>&nbsp;</td>
+      <td><label>
+        <input name="搜索" type="submit" id="搜索" value="搜索" />
+        <input name="重置" type="reset" id="重置" value="重置" />
+      </label></td>
     </tr>
-    <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
-</table>
-<br>
-<table border="0" width="50%" align="center">
-  <tr>
-    <td width="23%" align="center"><?php if ($pageNum_Recordset1 > 0) { // Show if not first page ?>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, 0, $queryString_Recordset1); ?>">第一页</a>
-          <?php } // Show if not first page ?>
-    </td>
-    <td width="31%" align="center"><?php if ($pageNum_Recordset1 > 0) { // Show if not first page ?>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>">前一页</a>
-          <?php } // Show if not first page ?>
-    </td>
-    <td width="23%" align="center"><?php if ($pageNum_Recordset1 < $totalPages_Recordset1) { // Show if not last page ?>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>">下一页</a>
-          <?php } // Show if not last page ?>
-    </td>
-    <td width="23%" align="center"><?php if ($pageNum_Recordset1 < $totalPages_Recordset1) { // Show if not last page ?>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, $totalPages_Recordset1, $queryString_Recordset1); ?>">最后一页</a>
-          <?php } // Show if not last page ?>
-    </td>
-  </tr>
-</table>
-记录 <?php echo ($startRow_Recordset1 + 1) ?> 到 <?php echo min($startRow_Recordset1 + $maxRows_Recordset1, $totalRows_Recordset1) ?> (总共 <?php echo $totalRows_Recordset1 ?>
+  </table>
+</form>
+<h1>&nbsp;</h1>
+
+<?php if ($totalRows_Recordset1 > 0) { // Show if recordset not empty ?>
+  <table width="100%" border="1" align="center">
+    <tr>
+      <td>id</td>
+      <td>权限名称</td>
+      <td>上级权限id</td>
+      <td>创建时间</td>
+      <td>更新时间</td>
+      <td>是否删除</td>
+      <td>操作</td>
+    </tr>
+    <?php do { ?>
+      <tr>
+        <td><a href="更新.php?recordID=<?php echo $row_Recordset1['id']; ?>"> <?php echo $row_Recordset1['id']; ?>&nbsp; </a> </td>
+        <td><?php echo $row_Recordset1['权限名称']; ?>&nbsp; </td>
+        <td><?php echo $row_Recordset1['上级权限id']; ?>&nbsp; </td>
+        <td><?php echo $row_Recordset1['创建时间']; ?>&nbsp; </td>
+        <td><?php echo $row_Recordset1['更新时间']; ?>&nbsp; </td>
+        <td><?php echo $row_Recordset1['是否删除']; ?>&nbsp; </td>
+        <td><a href="删除.php?id=<?php echo $row_Recordset1['id']; ?>">删除</a> <a href="更新.php?id=<?php echo $row_Recordset1['id']; ?>">更新</a></td>
+      </tr>
+      <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
+      </table>
+  <br>
+  <table border="0" width="50%" align="center">
+    <tr>
+      <td width="23%" align="center"><?php if ($pageNum_Recordset1 > 0) { // Show if not first page ?>
+            <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, 0, $queryString_Recordset1); ?>">第一页</a>
+            <?php } // Show if not first page ?>      </td>
+      <td width="31%" align="center"><?php if ($pageNum_Recordset1 > 0) { // Show if not first page ?>
+            <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>">前一页</a>
+            <?php } // Show if not first page ?>      </td>
+      <td width="23%" align="center"><?php if ($pageNum_Recordset1 < $totalPages_Recordset1) { // Show if not last page ?>
+            <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>">下一页</a>
+            <?php } // Show if not last page ?>      </td>
+      <td width="23%" align="center"><?php if ($pageNum_Recordset1 < $totalPages_Recordset1) { // Show if not last page ?>
+            <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, $totalPages_Recordset1, $queryString_Recordset1); ?>">最后一页</a>
+            <?php } // Show if not last page ?>      </td>
+    </tr>
+      </table>
+  记录 <?php echo ($startRow_Recordset1 + 1) ?> 到 <?php echo min($startRow_Recordset1 + $maxRows_Recordset1, $totalRows_Recordset1) ?> (总共 <?php echo $totalRows_Recordset1 ?>
+  <?php } // Show if recordset not empty ?>
 <p>&nbsp;</p>
 <?php if ($totalRows_Recordset1 == 0) { // Show if recordset empty ?>
   <p>没有记录，欢迎添加！  </p>

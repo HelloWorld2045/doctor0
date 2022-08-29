@@ -46,10 +46,41 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 </head>
 
 <body>
-<h1>搜索</h1>
+<h1>用户餐食内容</h1>
+<form id="搜索" name="搜索" method="get" action="">
+  <table width="100%" border="1">
+    <tr>
+      <td>用户id</td>
+      <td>&nbsp;</td>
+      <td>用户名</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>餐时类型</td>
+      <td>&nbsp;</td>
+      <td>条形码</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>卡路里最小值</td>
+      <td>&nbsp;</td>
+      <td>卡路里最大值</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><label>
+        <input name="搜索" type="submit" id="搜索" value="搜索" />
+        <input name="重置" type="reset" id="重置" value="重置" />
+      </label></td>
+    </tr>
+  </table>
+</form>
 <h1>列表</h1>
 <p>
-<table border="1" align="center">
+<table width="100%" border="1" align="center">
   <tr>
     <td>id</td>
     <td>餐食内容</td>
@@ -59,6 +90,7 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
     <td>创建时间</td>
     <td>更新时间</td>
     <td>是否删除</td>
+    <td>操作</td>
   </tr>
   <?php do { ?>
     <tr>
@@ -70,6 +102,7 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
       <td><?php echo $row_Recordset1['创建时间']; ?>&nbsp; </td>
       <td><?php echo $row_Recordset1['更新时间']; ?>&nbsp; </td>
       <td><?php echo $row_Recordset1['是否删除']; ?>&nbsp; </td>
+      <td><a href="删除.php?id=<?php echo $row_Recordset1['id']; ?>">删除</a> <a href="更新.php?id=<?php echo $row_Recordset1['id']; ?>">更新</a></td>
     </tr>
     <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
 </table>
@@ -96,7 +129,7 @@ $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recor
 </table>
 记录 <?php echo ($startRow_Recordset1 + 1) ?> 到 <?php echo min($startRow_Recordset1 + $maxRows_Recordset1, $totalRows_Recordset1) ?> (总共 <?php echo $totalRows_Recordset1 ?>
 </p>
-<p>没有记录，欢迎添加！
-</p>
-</body>
+<?php if ($totalRows_Recordset1 == 0) { // Show if recordset empty ?>
+  <p>没有记录，欢迎添加！  </p>
+  <?php } // Show if recordset empty ?></body>
 </html>

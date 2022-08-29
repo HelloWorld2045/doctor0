@@ -13,23 +13,47 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 </head>
 
 <body>
-<h1>科室列表</h1>
+<h1>科室管理</h1>
 <h1>搜索</h1>
-<p>没有记录，欢迎添加！</p>
-<table width="100%" border="1">
-  <tr>
-    <th width="27%" scope="col">id</th>
-    <th width="58%" scope="col">科室</th>
-    <th width="15%" scope="col">操作</th>
-  </tr>
-  <?php do { ?>
+<form id="搜索" name="搜索" method="get" action="">
+  <table width="100%" border="1">
     <tr>
-      <td><?php echo $row_Recordset1['id']; ?></td>
-      <td><?php echo $row_Recordset1['科室名称']; ?></td>
-      <td>更新 添加子科室 删除</td>
+      <td>科室id</td>
+      <td>&nbsp;</td>
+      <td>科室名</td>
+      <td>&nbsp;</td>
     </tr>
-    <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
-</table>
-<p>&nbsp;</p>
+
+    <tr>
+      <td colspan="4"> s
+        <div align="right">
+          <input name="搜索" type="submit" id="搜索" value="搜索" />
+          <input name="重置" type="reset" id="重置" value="重置" />
+          </div>s
+       </div>
+       </td>
+    </tr>
+  </table>
+</form>
+
+<?php if ($totalRows_Recordset1 == 0) { // Show if recordset empty ?>
+  <p>没有记录，欢迎添加！</p>
+  <?php } // Show if recordset empty ?>
+<?php if ($totalRows_Recordset1 > 0) { // Show if recordset not empty ?>
+  <table width="100%" border="1">
+    <tr>
+      <th width="27%" scope="col">id</th>
+      <th width="58%" scope="col">科室</th>
+      <th width="15%" scope="col">操作</th>
+    </tr>
+    <?php do { ?>
+      <tr>
+        <td><?php echo $row_Recordset1['id']; ?></td>
+        <td><?php echo $row_Recordset1['科室名称']; ?></td>
+        <td> 添加子科室 <a href="删除.php?id=<?php echo $row_Recordset1['id']; ?>">删除</a> <a href="更新.php?id=<?php echo $row_Recordset1['id']; ?>">更新</a></td>
+      </tr>
+      <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
+      </table>
+  <?php } // Show if recordset not empty ?><p>&nbsp;</p>
 </body>
 </html>

@@ -54,6 +54,37 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 </head>
 
 <body>
+<form id="搜索" name="搜索" method="get" action="">
+  <table width="100%" border="1">
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><label>
+        <input name="搜索" type="submit" id="搜索" value="搜索" />
+        <input name="重置" type="reset" id="重置" value="重置" />
+      </label></td>
+    </tr>
+  </table>
+</form>
 <p>添加科室</p>
 <form method="post" name="form1" action="<?php echo $editFormAction; ?>">
   <table align="center">
