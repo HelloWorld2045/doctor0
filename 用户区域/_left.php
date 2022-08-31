@@ -6,5 +6,22 @@
 </head>
 
 <body>
+<table width="200" border="1">
+  <tr>
+    <td>预约管理</td>
+  </tr>
+  <tr>
+    <td>设备管理</td>
+  </tr>
+  <tr>
+    <td>数据管理</td>
+  </tr>
+  <tr>
+    <td>血糖管理</td>
+  </tr>
+  <tr>
+    <td>血压管理</td>
+  </tr>
+</table>
 </body>
 </html>
