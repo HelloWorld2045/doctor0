@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:3,name:设备名称;datatype:253,name:设备类型;datatype:1,name:创建时间;datatype:7,name:更新时间;datatype:7,name:已经删除;datatype:1" />
+</info>
